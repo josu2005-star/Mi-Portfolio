@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel · Josué Herrera</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+
+<header class="dash-header">
+  <a href="./index.html" class="dash-brand">Josué Herrera <span>· panel de edición</span></a>
+  <div id="dash-session" class="dash-session" hidden>
+    <span id="dash-email"></span>
+    <button type="button" id="btn-logout" class="btn btn-ghost">Cerrar sesión</button>
+  </div>
+</header>
+
+<main class="dash-main">
+
+  <section id="auth-view" class="auth-card">
+    <h1>Entrar al panel</h1>
+    <p class="muted">Solo tú deberías tener acceso a esto. Si ya creaste tu cuenta, inicia sesión abajo. Si es la primera vez, usa "Crear cuenta" — y después ve a tu proyecto de Supabase (Authentication → Settings) y desactiva los registros públicos para que nadie más pueda crear una cuenta.</p>
+    <form id="auth-form" class="stack">
+      <label>Correo
+        <input type="email" id="auth-email" required autocomplete="username">
+      </label>
+      <label>Contraseña
+        <input type="password" id="auth-password" required autocomplete="current-password" minlength="6">
+      </label>
+      <div class="auth-actions">
+        <button type="submit" class="btn btn-primary" id="btn-login">Iniciar sesión</button>
+        <button type="button" class="btn btn-secondary" id="btn-signup">Crear cuenta</button>
+      </div>
+    </form>
+    <p id="auth-message" class="auth-message" role="status"></p>
+  </section>
+
+  <div id="editor-view" hidden>
+
+    <section class="panel">
+      <h2>Portada y contacto</h2>
+      <p class="muted">Este texto aparece en el hero y en la sección de contacto del sitio.</p>
+      <form id="business-form" class="stack">
+        <label>Etiqueta pequeña sobre el título (eyebrow)
+          <input type="text" id="f-hero_eyebrow" maxlength="80">
+        </label>
+        <label>Título principal
+          <textarea id="f-hero_headline" rows="2" maxlength="200"></textarea>
+        </label>
+        <label>Párrafo debajo del título
+          <textarea id="f-hero_subhead" rows="4" maxlength="600"></textarea>
+        </label>
+        <div class="grid-2">
+          <label>Número de WhatsApp (solo dígitos, con código de país)
+            <input type="text" id="f-whatsapp_number" maxlength="20" placeholder="593963278186">
+          </label>
+          <label>Mensaje predeterminado de WhatsApp
+            <input type="text" id="f-whatsapp_message" maxlength="300">
+          </label>
+        </div>
+        <label>Título de la sección de contacto
+          <textarea id="f-contact_headline" rows="2" maxlength="200"></textarea>
+        </label>
+        <label>Párrafo de la sección de contacto
+          <textarea id="f-contact_lede" rows="4" maxlength="600"></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">Guardar portada y contacto</button>
+        <span class="save-status" data-status-for="business-form"></span>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Servicios y precios</h2>
+        <button type="button" class="btn btn-secondary" id="btn-add-service">+ Agregar servicio</button>
+      </div>
+      <p class="muted">Estos son los 5 servicios con precio "desde" que ves en el sitio.</p>
+      <div id="services-list" class="record-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Casos de trabajo</h2>
+        <button type="button" class="btn btn-secondary" id="btn-add-case">+ Agregar caso</button>
+      </div>
+      <p class="muted">El texto de cada caso. Las miniaturas visuales (los mockups) no se editan aquí — viven en el código del sitio.</p>
+      <div id="cases-list" class="record-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Cómo trabajo</h2>
+        <button type="button" class="btn btn-secondary" id="btn-add-step">+ Agregar paso</button>
+      </div>
+      <div id="steps-list" class="record-list"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Estadísticas</h2>
+      <p class="stat-line">Clics en botones de WhatsApp: <strong id="stat-wa-clicks">—</strong></p>
+    </section>
+
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="./js/supabase-client.js"></script>
+<script src="./js/dashboard.js"></script>
+</body>
+</html>
