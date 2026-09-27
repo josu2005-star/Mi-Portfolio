@@ -551,6 +551,34 @@ img { max-width: 100%; display: block; }
 .fh-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.12em; color: #C9D2E0; }
 .fh-specs span { border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 8px; padding: 8px; text-align: center; }
 
+.mock-cc { background: #17130F; }
+.cc-card {
+  width: 186px;
+  background: #F4EEE3;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+}
+.cc-brand { display: flex; align-items: center; gap: 7px; padding: 2px 2px 8px; }
+.cc-badge { width: 20px; height: 20px; border-radius: 50%; background: #F4EEE3; border: 2px solid #5B3A22; flex-shrink: 0; }
+.cc-name { font-family: var(--font-serif); font-size: 15px; color: #2A211A; line-height: 1; }
+.cc-sub { font-family: var(--font-mono); font-size: 5.5px; letter-spacing: 0.18em; color: #8A7F73; margin-top: 3px; }
+.cc-promo { background: #C17A4E; color: #fff; border-radius: 10px; padding: 9px 10px; }
+.cc-promo-label { font-family: var(--font-mono); font-size: 5.5px; letter-spacing: 0.16em; opacity: 0.9; }
+.cc-promo-title { font-family: var(--font-serif); font-size: 13px; margin-top: 4px; line-height: 1.1; }
+.cc-promo-row { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 6px; }
+.cc-promo-row span:first-child { font-size: 6px; opacity: 0.92; max-width: 100px; line-height: 1.3; }
+.cc-price { font-family: var(--font-display); font-size: 13px; font-weight: 800; }
+.cc-chips { display: flex; gap: 4px; margin-top: 8px; font-family: var(--font-mono); font-size: 6px; }
+.cc-chips span { padding: 4px 7px; border-radius: 999px; }
+.cc-chips .on { background: #2A211A; color: #F4EEE3; }
+.cc-chips .off { background: #E7DFD0; color: #2A211A; }
+.cc-items { display: flex; flex-direction: column; gap: 5px; margin-top: 7px; }
+.cc-item { background: #fff; border-radius: 8px; padding: 6px 8px; display: flex; justify-content: space-between; align-items: center; }
+.cc-item .name { font-family: var(--font-display); font-size: 8px; font-weight: 600; color: #2A211A; }
+.cc-item .price { font-family: var(--font-display); font-size: 9px; font-weight: 800; color: #C17A4E; }
+.cc-cta { margin-top: 8px; background: #2A211A; color: #F4EEE3; border-radius: 999px; text-align: center; font-size: 6.5px; padding: 6px; font-family: var(--font-mono); letter-spacing: 0.1em; }
+
 .mock-sig { background: #1B1815; padding: 30px 24px; }
 .sig-card { width: 100%; max-width: 280px; background: #F3EFE9; border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
 .sig-card .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.18em; color: #8A7F73; }
