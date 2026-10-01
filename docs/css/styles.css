@@ -303,6 +303,7 @@ img { max-width: 100%; display: block; }
 .service-hint .when-open { display: none; }
 .service-card.has-details[open] .service-hint .when-open { display: inline; }
 .service-card.has-details[open] .service-hint .when-closed { display: none; }
+.service-card.has-details.is-dark .service-hint { color: var(--accent-light); }
 
 .service-plans {
   border-top: 1px solid var(--border);
@@ -321,7 +322,7 @@ img { max-width: 100%; display: block; }
 }
 .plan-tier.is-highlighted { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .plan-tier-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
-.plan-tier-head h4 { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin: 0; }
+.plan-tier-head h4 { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin: 0; color: var(--ink); }
 .plan-tier-price { font-family: var(--font-mono); font-size: 12px; color: var(--accent); white-space: nowrap; }
 .plan-tier-tagline { margin: 8px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--ink-mute); }
 .plan-tier-features { margin: 10px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
