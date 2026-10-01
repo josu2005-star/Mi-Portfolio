@@ -111,6 +111,8 @@
       wrap.innerHTML = `<input type="checkbox" data-key="${key}"> ${label}`;
     } else if (type === 'textarea') {
       wrap.innerHTML = `${label}<textarea data-key="${key}" rows="${extra?.rows || 2}" maxlength="${extra?.maxlength || 600}"></textarea>`;
+    } else if (type === 'json') {
+      wrap.innerHTML = `${label}<textarea data-key="${key}" rows="${extra?.rows || 12}" style="font-family:monospace;font-size:12px;"></textarea>`;
     } else {
       wrap.innerHTML = `${label}<input type="text" data-key="${key}" maxlength="${extra?.maxlength || 200}">`;
     }
@@ -139,6 +141,7 @@
       }
       inputs[def.key] = field(target, def.key, def.label, def.type, def);
       if (def.type === 'checkbox') inputs[def.key].checked = !!record[def.key];
+      else if (def.type === 'json') inputs[def.key].value = record[def.key] ? JSON.stringify(record[def.key], null, 2) : '';
       else inputs[def.key].value = record[def.key] ?? '';
     });
 
@@ -155,12 +158,23 @@
 
     foot.querySelector('.btn-save').addEventListener('click', async () => {
       const patch = {};
-      fieldDefs.forEach((def) => {
+      for (const def of fieldDefs) {
         const el = inputs[def.key];
-        patch[def.key] = def.type === 'checkbox' ? el.checked
-          : def.type === 'number' ? Number(el.value || 0)
-          : el.value;
-      });
+        if (def.type === 'checkbox') {
+          patch[def.key] = el.checked;
+        } else if (def.type === 'number') {
+          patch[def.key] = Number(el.value || 0);
+        } else if (def.type === 'json') {
+          try {
+            patch[def.key] = el.value.trim() ? JSON.parse(el.value) : null;
+          } catch (e) {
+            status.textContent = 'Error en el JSON de "' + def.label + '": ' + e.message;
+            return;
+          }
+        } else {
+          patch[def.key] = el.value;
+        }
+      }
       patch.updated_at = new Date().toISOString();
       status.textContent = 'Guardando…';
       const { error } = await sb.from(table).update(patch).eq('id', record.id);
@@ -186,6 +200,7 @@
     { key: 'kicker', label: 'Etiqueta mono (ej. "DOMINIO · MÓVIL · WHATSAPP")' },
     { key: 'is_highlighted', label: 'Destacar en oscuro (como "Manual de identidad")', type: 'checkbox' },
     { key: 'sort_order', label: 'Orden', type: 'number' },
+    { key: 'plans', label: 'Planes detallados (JSON opcional — déjalo vacío si este servicio no despliega planes). Estructura: {"note":"...","addon":{"title":"...","price":"...","description":"..."},"tiers":[{"name":"...","price":"...","tagline":"...","features":["..."],"delivery":"...","highlighted":true}]}', type: 'json', rows: 14 },
   ];
 
   const CASE_FIELDS = [

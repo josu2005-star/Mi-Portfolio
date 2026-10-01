@@ -38,29 +38,81 @@
     }
   }
 
+  function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  function buildPlanTier(tier) {
+    const div = el('div', 'plan-tier' + (tier.highlighted ? ' is-highlighted' : ''));
+    const head = el('div', 'plan-tier-head');
+    head.appendChild(el('h4', null, tier.name));
+    head.appendChild(el('span', 'plan-tier-price', tier.price));
+    div.appendChild(head);
+    if (tier.tagline) div.appendChild(el('p', 'plan-tier-tagline', tier.tagline));
+    if (Array.isArray(tier.features) && tier.features.length) {
+      const ul = el('ul', 'plan-tier-features');
+      tier.features.forEach((f) => ul.appendChild(el('li', null, f)));
+      div.appendChild(ul);
+    }
+    if (tier.delivery) div.appendChild(el('p', 'plan-tier-delivery', tier.delivery));
+    return div;
+  }
+
+  function buildPlanAddon(addon) {
+    const div = el('div', 'plan-addon');
+    const head = el('div', 'plan-addon-head');
+    head.appendChild(el('h4', null, addon.title));
+    head.appendChild(el('span', 'plan-addon-price', addon.price));
+    div.appendChild(head);
+    if (addon.description) div.appendChild(el('p', null, addon.description));
+    return div;
+  }
+
+  function buildServiceCard(svc) {
+    const hasPlans = svc.plans && Array.isArray(svc.plans.tiers) && svc.plans.tiers.length;
+    const head = el('div', 'service-card-head');
+    head.appendChild(el('h3', null, svc.title));
+    head.appendChild(el('span', 'service-price', svc.price_label));
+
+    if (!hasPlans) {
+      const article = el('article', 'service-card' + (svc.is_highlighted ? ' is-dark' : ''));
+      article.appendChild(head);
+      article.appendChild(el('p', 'desc', svc.description));
+      article.appendChild(el('p', 'kicker', svc.kicker));
+      return article;
+    }
+
+    const details = document.createElement('details');
+    details.className = 'service-card has-details';
+    const summary = document.createElement('summary');
+    summary.appendChild(head);
+    summary.appendChild(el('p', 'desc', svc.description));
+    summary.appendChild(el('p', 'kicker', svc.kicker));
+    const hint = el('span', 'service-hint');
+    hint.appendChild(el('span', 'when-closed', 'Ver planes detallados'));
+    hint.appendChild(el('span', 'when-open', 'Ocultar planes'));
+    hint.appendChild(el('span', 'chevron', '▾'));
+    summary.appendChild(hint);
+    details.appendChild(summary);
+
+    const plansDiv = el('div', 'service-plans');
+    svc.plans.tiers.forEach((t) => plansDiv.appendChild(buildPlanTier(t)));
+    if (svc.plans.addon) plansDiv.appendChild(buildPlanAddon(svc.plans.addon));
+    if (svc.plans.note) plansDiv.appendChild(el('p', 'plan-note', svc.plans.note));
+    details.appendChild(plansDiv);
+    return details;
+  }
+
   async function hydrateServices() {
     const grid = document.getElementById('servicios-grid');
     if (!grid) return;
     const { data, error } = await sb.from('services').select('*').order('sort_order');
     if (error || !data || !data.length) return;
     grid.innerHTML = '';
-    for (const svc of data) {
-      const article = document.createElement('article');
-      article.className = 'service-card' + (svc.is_highlighted ? ' is-dark' : '');
-      article.innerHTML = `
-        <div class="service-card-head">
-          <h3></h3>
-          <span class="service-price"></span>
-        </div>
-        <p class="desc"></p>
-        <p class="kicker"></p>
-      `;
-      article.querySelector('h3').textContent = svc.title;
-      article.querySelector('.service-price').textContent = svc.price_label;
-      article.querySelector('.desc').textContent = svc.description;
-      article.querySelector('.kicker').textContent = svc.kicker;
-      grid.appendChild(article);
-    }
+    for (const svc of data) grid.appendChild(buildServiceCard(svc));
   }
 
   async function hydrateCases() {
