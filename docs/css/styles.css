@@ -674,6 +674,44 @@ img { max-width: 100%; display: block; }
 .caps-d .kicker { font-family: var(--font-mono); font-size: 6.5px; color: #A8B6CE; letter-spacing: 0.16em; }
 .caps-d .cta { background: #FBFAF7; color: #16233C; border-radius: 999px; text-align: center; font-size: 7px; padding: 5px; font-family: var(--font-mono); }
 
+.mock-ddd { background: #121010; }
+.ddd-phone {
+  width: 190px;
+  background: #E9E3D6;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+.ddd-statusbar {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  color: #8E8170;
+  padding: 2px 4px 6px;
+}
+.ddd-brand { text-align: center; padding: 2px 0 8px; }
+.ddd-brand .name { font-family: var(--font-serif); font-style: italic; font-size: 18px; color: #C8322B; line-height: 1; }
+.ddd-brand .sub { font-family: var(--font-mono); font-size: 5.5px; letter-spacing: 0.2em; color: #8E8170; margin-top: 4px; }
+.ddd-promo { background: #E3B341; color: #1F1A15; border-radius: 10px; padding: 9px 10px; }
+.ddd-promo .label { font-family: var(--font-mono); font-size: 5.5px; letter-spacing: 0.16em; opacity: 0.9; }
+.ddd-promo .title { font-family: var(--font-display); font-size: 11px; font-weight: 800; margin-top: 4px; line-height: 1.1; }
+.ddd-promo .row { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 6px; }
+.ddd-promo .row span:first-child { font-size: 6px; opacity: 0.92; max-width: 90px; line-height: 1.3; }
+.ddd-promo .price { font-family: var(--font-display); font-size: 14px; font-weight: 800; }
+.ddd-chips { display: flex; gap: 4px; margin-top: 8px; font-family: var(--font-mono); font-size: 6.5px; }
+.ddd-chips span { padding: 4px 7px; border-radius: 999px; }
+.ddd-chips span.on { background: #C8322B; color: #fff; }
+.ddd-chips span.off { background: #F3EEE4; color: #1F1A15; }
+.ddd-items { display: flex; flex-direction: column; gap: 5px; margin-top: 7px; }
+.ddd-item { background: #fff; border-radius: 8px; padding: 6px 8px; display: flex; justify-content: space-between; align-items: center; }
+.ddd-item .name { font-family: var(--font-display); font-size: 8px; font-weight: 600; color: #1F1A15; }
+.ddd-item .price { font-family: var(--font-display); font-size: 9px; font-weight: 800; color: #C8322B; }
+.ddd-cta { margin-top: 8px; background: #E3B341; color: #1F1A15; border-radius: 999px; text-align: center; font-size: 6px; padding: 6px; font-family: var(--font-mono); letter-spacing: 0.08em; }
+.ddd-swatches { display: flex; flex-direction: column; gap: 6px; }
+.ddd-swatches span { width: 26px; height: 26px; border-radius: 6px; }
+
 /* ---------- Proceso ---------- */
 
 .proceso {
