@@ -493,7 +493,7 @@ img { max-width: 100%; display: block; }
 .eg-phone {
   width: 190px;
   background: #F4F6F9;
-  border-radius: 20px;
+  border-radius: 28px;
   padding: 10px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
@@ -542,7 +542,7 @@ img { max-width: 100%; display: block; }
 .mm-phone {
   width: 190px;
   background: #F4F6F9;
-  border-radius: 20px;
+  border-radius: 28px;
   padding: 10px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
@@ -583,7 +583,7 @@ img { max-width: 100%; display: block; }
 .mb-card {
   width: 186px;
   background: #F6EFE6;
-  border-radius: 20px;
+  border-radius: 28px;
   padding: 10px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
 }
@@ -606,7 +606,7 @@ img { max-width: 100%; display: block; }
 
 .mock-fh { background: #101C33; }
 .fh-wrap { width: 100%; max-width: 300px; display: flex; flex-direction: column; gap: 10px; }
-.fh-card { background: #FBFAF7; border-radius: 12px; padding: 26px 20px; text-align: center; }
+.fh-card { background: #FBFAF7; border-radius: 28px; padding: 26px 20px; text-align: center; }
 .fh-mono { font-family: var(--font-serif); font-size: 54px; line-height: 0.85; color: #101C33; letter-spacing: -0.04em; }
 .fh-name { font-family: var(--font-serif); font-size: 15px; color: #101C33; margin-top: 12px; }
 .fh-sub { font-family: var(--font-mono); font-size: 7px; letter-spacing: 0.24em; color: var(--ink-faint); margin-top: 5px; }
@@ -623,7 +623,7 @@ img { max-width: 100%; display: block; }
 .cc-card {
   width: 186px;
   background: #F4EEE3;
-  border-radius: 20px;
+  border-radius: 28px;
   padding: 10px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
 }
@@ -679,7 +679,7 @@ img { max-width: 100%; display: block; }
   width: 190px;
   background: #1B1613;
   border: 1px solid rgba(243, 238, 225, 0.08);
-  border-radius: 20px;
+  border-radius: 28px;
   padding: 10px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
   flex-shrink: 0;
@@ -720,7 +720,7 @@ img { max-width: 100%; display: block; }
   display: block;
   width: 92%;
   max-width: 380px;
-  border-radius: 14px;
+  border-radius: 28px;
   overflow: hidden;
   background: #0A100C;
   border: 1px solid rgba(241, 233, 218, 0.08);
