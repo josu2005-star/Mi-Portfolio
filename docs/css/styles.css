@@ -718,7 +718,7 @@ img { max-width: 100%; display: block; }
 
 .live-embed {
   width: 100%;
-  max-width: 300px;
+  max-width: 460px;
   border-radius: 14px;
   overflow: hidden;
   background: #0A100C;
@@ -745,8 +745,8 @@ img { max-width: 100%; display: block; }
 }
 .live-embed-viewport {
   position: relative;
-  width: 300px;
-  height: 211px;
+  width: 100%;
+  aspect-ratio: 1280 / 900;
   overflow: hidden;
 }
 .live-embed-viewport iframe {
@@ -756,9 +756,15 @@ img { max-width: 100%; display: block; }
   width: 1280px;
   height: 900px;
   border: 0;
-  transform: scale(0.2344);
   transform-origin: top left;
   background: #0A100C;
+}
+/* Touch devices can't scroll a scaled-down iframe cleanly — the swipe
+   escapes the thumbnail and drags the whole page with it. Keep the
+   live preview mouse-interactive on desktop only; on touch it's a
+   static-but-live snapshot and swipes just scroll the portfolio page. */
+@media (pointer: coarse) {
+  .live-embed-viewport iframe { pointer-events: none; }
 }
 .live-embed-hint {
   text-align: center;
