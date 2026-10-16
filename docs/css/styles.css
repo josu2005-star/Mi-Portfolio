@@ -715,6 +715,61 @@ img { max-width: 100%; display: block; }
 
 /* Soluna Rooftop */
 .mock-sol { background: #0A100C; }
+
+.live-embed {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0A100C;
+  border: 1px solid rgba(241, 233, 218, 0.08);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+}
+.live-embed-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  background: #15120D;
+}
+.live-embed-bar .dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(241, 233, 218, 0.22); }
+.live-embed-url {
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.02em;
+  color: #8A8072;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.live-embed-viewport {
+  position: relative;
+  width: 300px;
+  height: 211px;
+  overflow: hidden;
+}
+.live-embed-viewport iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 900px;
+  border: 0;
+  transform: scale(0.2344);
+  transform-origin: top left;
+  background: #0A100C;
+}
+.live-embed-hint {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #8A8072;
+  padding: 7px 0;
+  background: #15120D;
+  border-top: 1px solid rgba(241, 233, 218, 0.06);
+}
 .sol-phone {
   width: 190px;
   background: #15120D;
