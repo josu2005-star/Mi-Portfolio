@@ -534,9 +534,9 @@ img { max-width: 100%; display: block; }
 /* Live-site preview thumbnails (real screenshot in a browser-chrome frame) */
 .bg-soluna { background: #0A100C; }
 .bg-dosdosdos { background: #14100D; }
-.bg-encamina { background: #25264F; }
+.bg-encamina { background: #2E3368; }
 .bg-cafechoco { background: #17130F; }
-.bg-megamaquinas { background: #292B63; }
+.bg-megamaquinas { background: #0D2B4E; }
 .bg-matambre { background: #17120F; }
 
 .live-embed {
