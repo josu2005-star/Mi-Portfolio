@@ -717,6 +717,7 @@ img { max-width: 100%; display: block; }
 .mock-sol { background: #0A100C; }
 
 .live-embed {
+  display: block;
   width: 100%;
   max-width: 460px;
   border-radius: 14px;
@@ -724,6 +725,12 @@ img { max-width: 100%; display: block; }
   background: #0A100C;
   border: 1px solid rgba(241, 233, 218, 0.08);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.live-embed:hover, .live-embed:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.5);
 }
 .live-embed-bar {
   display: flex;
@@ -758,20 +765,17 @@ img { max-width: 100%; display: block; }
   border: 0;
   transform-origin: top left;
   background: #0A100C;
-}
-/* Touch devices can't scroll a scaled-down iframe cleanly — the swipe
-   escapes the thumbnail and drags the whole page with it. Keep the
-   live preview mouse-interactive on desktop only; on touch it's a
-   static-but-live snapshot and swipes just scroll the portfolio page. */
-@media (pointer: coarse) {
-  .live-embed-viewport iframe { pointer-events: none; }
+  /* This is a frozen snapshot of the homepage, not an interactive
+     frame: no scroll, no clicks land inside it — the whole card is a
+     link to the real site instead. */
+  pointer-events: none;
 }
 .live-embed-hint {
   text-align: center;
   font-family: var(--font-mono);
   font-size: 9px;
   letter-spacing: 0.08em;
-  color: #8A8072;
+  color: #C9A35E;
   padding: 7px 0;
   background: #15120D;
   border-top: 1px solid rgba(241, 233, 218, 0.06);
