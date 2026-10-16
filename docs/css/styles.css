@@ -541,8 +541,8 @@ img { max-width: 100%; display: block; }
 
 .live-embed {
   display: block;
-  width: 92%;
-  max-width: 380px;
+  width: 95%;
+  max-width: 440px;
   border-radius: 28px;
   overflow: hidden;
   background: #0A100C;
@@ -598,7 +598,7 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid rgba(241, 233, 218, 0.06);
 }
 @media (min-width: 640px) {
-  .live-embed { max-width: 420px; }
+  .live-embed { max-width: 480px; }
 }
 @media (max-width: 639px) {
   .live-embed-viewport img { object-position: left top; }
