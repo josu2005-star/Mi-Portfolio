@@ -532,7 +532,12 @@ img { max-width: 100%; display: block; }
 .caps-d .cta { background: #FBFAF7; color: #16233C; border-radius: 999px; text-align: center; font-size: 7px; padding: 5px; font-family: var(--font-mono); }
 
 /* Live-site preview thumbnails (real screenshot in a browser-chrome frame) */
-.mock-sol { background: #0A100C; }
+.bg-soluna { background: #0F1417; }
+.bg-dosdosdos { background: #141210; }
+.bg-encamina { background: #EDEFF4; }
+.bg-cafechoco { background: #130F10; }
+.bg-megamaquinas { background: #1C1D21; }
+.bg-matambre { background: #16110D; }
 
 .live-embed {
   display: block;
