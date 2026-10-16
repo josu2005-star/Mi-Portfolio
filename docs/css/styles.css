@@ -777,6 +777,9 @@ img { max-width: 100%; display: block; }
 @media (min-width: 640px) {
   .live-embed { max-width: 420px; }
 }
+@media (max-width: 639px) {
+  .live-embed-viewport img { object-position: left top; }
+}
 .sol-phone {
   width: 190px;
   background: #15120D;
