@@ -390,6 +390,9 @@ img { max-width: 100%; display: block; }
   gap: 14px;
   min-height: 320px;
 }
+.case-visual:has(.live-embed) {
+  padding: 14px;
+}
 
 .case-body {
   padding: clamp(24px, 3vw, 40px);
@@ -541,8 +544,8 @@ img { max-width: 100%; display: block; }
 
 .live-embed {
   display: block;
-  width: 95%;
-  max-width: 440px;
+  width: 98%;
+  max-width: 540px;
   border-radius: 28px;
   overflow: hidden;
   background: #0A100C;
@@ -598,7 +601,7 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid rgba(241, 233, 218, 0.06);
 }
 @media (min-width: 640px) {
-  .live-embed { max-width: 480px; }
+  .live-embed { max-width: 640px; }
 }
 @media (max-width: 639px) {
   .live-embed-viewport img { object-position: left top; }
